@@ -1,0 +1,82 @@
+package RoundedRect
+
+import (
+	"github.com/therecipe/qt/core"
+	"github.com/therecipe/qt/gui"
+	"github.com/therecipe/qt/widgets"
+)
+
+type RoundedRect struct {
+	*widgets.QGraphicsItem
+	Scene *widgets.QGraphicsScene
+	X, Y  float64
+	W, H  int
+}
+
+func NewRectangle(x, y float64, step, w, h int, s *widgets.QGraphicsScene) *RoundedRect {
+	i := &RoundedRect{}
+	i.QGraphicsItem = widgets.NewQGrapicsItem(nil)
+	i.Scene = s
+	i.X = x
+	i.Y = y
+	i.W = w
+	i.H = h
+
+	i.SetAcceptHoverEvents(true)
+	i.ConnectHoverEnterEvent(i.rectHoverEnterEvent)
+	i.ConnectHoverLeaveEvent(i.rectHoverLeaveEvent)
+
+	i.ConnectBoundingRect(boundingRect)
+	i.ConnectPaint(paint)
+
+	return i
+}
+
+func (i *widgets.QGraphicsItem) paint(p *gui.QPainter, o *QStyleOptionGraphicsItem, w *QWidget) {
+	var color = gui.NewQColor2(0, 0, 0, 255) // r,g,b,a
+	var pen = gui.NewQPen3(color)
+	pen.SetWidth(1)
+	var brush = gui.NewQBrush()
+
+	var x, y = float64((int(i.X) / step) * step), float64((int(i.Y) / step) * step) // round to nearest fit
+
+	p.SetRenderHint(1) // Antiailiasing
+	var path = gui.NewQPainterPath()
+	path.AddRoundedRect2(x, y, i.W, i.H, 10, 10)
+	p.SetPen(pen)
+	color = gui.NewQColor2(0, 0, 0, 100) // r,g,b,a
+	p.FillPath(path, color)
+	p.DrawPath(path)
+}
+
+func (i *widgets.QGraphicsItem) boundingRect() *core.QRectF {
+	return core.QRectF(150, 150, 60, 60)
+}
+
+func (i *widgets.QGraphicsItem) rectHoverEnterEvent(e *widgets.QGraphicsSceneHoverEvent) {
+	var x, y = e.Pos().X(), e.Pos().Y()
+	var i = c.Scene.ItemAt3(x, y, nil)
+	var p = core.NewQPointF()
+	p = i.ScenePos()
+	x, y = p.X(), p.Y()
+	//c.Statusbar.ShowMessage("object is: "+i.Data(0).ToString(), 0)
+	c.Statusbar.ShowMessage("object is: "+FloatToString(x)+" "+FloatToString(y), 0)
+
+	var color = gui.NewQColor2(0, 0, 0, 255/2) // r,g,b,a
+	var pen = gui.NewQPen3(color)
+	pen.SetWidth(0)
+	var brush = gui.NewQBrush()
+	r := widgets.NewQGraphicsRectItem3(x+(20/2), y+(10/2), 20/2, 10/2, nil)
+	r.SetPen(pen)
+	r.SetBrush(brush)
+	c.Scene.AddItem(r)
+
+	//c.Statusbar.ShowMessage("hovering: "+FloatToString(e.Pos().X())+", "+FloatToString(e.Pos().Y()), 0)
+}
+
+func (i *widgets.QGraphicsItem) rectHoverLeaveEvent(e *widgets.QGraphicsSceneHoverEvent) {
+	var x, y = e.Pos().X(), e.Pos().Y()
+	var i = c.Scene.ItemAt3(x, y, nil)
+	c.Scene.RemoveItem(i)
+
+}
