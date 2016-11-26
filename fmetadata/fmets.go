@@ -1,4 +1,4 @@
-//// O:\2016\P1\C2\2016042414_P1C2\L0\Ancillary\2016042414_P1C2_metadata.xml
+
 package fmets
 
 //type Flight struct {

@@ -1,6 +1,6 @@
 package gfxinterface
 
-import "github.com/5k3105/FM/graph"
+import "github.com/5k3105/Pipeline-Editor/graph"
 
 type Figure interface {
 	GetX() float64

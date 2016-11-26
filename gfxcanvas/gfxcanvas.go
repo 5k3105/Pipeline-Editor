@@ -1,12 +1,12 @@
 package gfxcanvas
 
 import (
-	"github.com/5k3105/FM/gfxinterface"
-	"github.com/5k3105/FM/gfxobjects/line"
-	"github.com/5k3105/FM/gfxobjects/rectangle"
-	"github.com/5k3105/FM/graph"
+	"github.com/5k3105/Pipeline-Editor/gfxinterface"
+	"github.com/5k3105/Pipeline-Editor/gfxobjects/line"
+	"github.com/5k3105/Pipeline-Editor/gfxobjects/rectangle"
+	"github.com/5k3105/Pipeline-Editor/graph"
 
-	"github.com/5k3105/FM/janus"
+	"github.com/5k3105/Pipeline-Editor/janus"
 	"strconv"
 
 	"github.com/emirpasic/gods/maps/treemap"

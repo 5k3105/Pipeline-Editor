@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/5k3105/FM/genxml"
-	"github.com/5k3105/FM/gfxcanvas"
-	"github.com/5k3105/FM/gfxobjects/rectangle"
-	"github.com/5k3105/FM/graphpanel"
-	"github.com/5k3105/FM/janus"
+	"github.com/5k3105/Pipeline-Editor/genxml"
+	"github.com/5k3105/Pipeline-Editor/gfxcanvas"
+	"github.com/5k3105/Pipeline-Editor/gfxobjects/rectangle"
+	"github.com/5k3105/Pipeline-Editor/graphpanel"
+	"github.com/5k3105/Pipeline-Editor/janus"
 	"os"
 
 	"github.com/therecipe/qt/core"

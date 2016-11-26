@@ -1,7 +1,7 @@
 package graphpanel
 
 import (
-	"github.com/5k3105/FM/janus"
+	"github.com/5k3105/Pipeline-Editor/janus"
 
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/gui"

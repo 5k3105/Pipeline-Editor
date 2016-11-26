@@ -1,10 +1,10 @@
 package genxml
 
 import (
-	"github.com/5k3105/FM/gfxcanvas"
-	"github.com/5k3105/FM/gfxinterface"
-	"github.com/5k3105/FM/graphpanel"
-	"github.com/5k3105/FM/janus"
+	"github.com/5k3105/Pipeline-Editor/gfxcanvas"
+	"github.com/5k3105/Pipeline-Editor/gfxinterface"
+	"github.com/5k3105/Pipeline-Editor/graphpanel"
+	"github.com/5k3105/Pipeline-Editor/janus"
 	"strconv"
 
 	"github.com/beevik/etree"

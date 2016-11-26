@@ -1,9 +1,9 @@
 package line
 
 import (
-	"github.com/5k3105/FM/gfxinterface"
-	"github.com/5k3105/FM/gfxobjects/point"
-	"github.com/5k3105/FM/graph"
+	"github.com/5k3105/Pipeline-Editor/gfxinterface"
+	"github.com/5k3105/Pipeline-Editor/gfxobjects/point"
+	"github.com/5k3105/Pipeline-Editor/graph"
 
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/gui"
