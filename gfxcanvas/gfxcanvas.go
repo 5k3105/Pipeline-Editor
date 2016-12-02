@@ -353,7 +353,11 @@ func (c *Canvas) ClearScene() {
 
 func (c *Canvas) ShowPic(filepath, filetype string) {
 
-	ir := gui.NewQImageReader3(filepath, filetype)
+	// string from core.QByteArray like this:  (*QByteArray).ConstData()
+
+	ft := core.NewQByteArray2(filetype,len(filetype))
+
+	ir := gui.NewQImageReader3(filepath, ft)
 	img := ir.Read()
 
 	pix := gui.QPixmap_FromImage(img, 0)
